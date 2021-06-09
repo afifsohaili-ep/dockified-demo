@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div>
     <p>{{ message }} - {{ count }}</p>
     <button @click="count++">Click meh</button>
   </div>
