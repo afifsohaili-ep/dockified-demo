@@ -1,5 +1,5 @@
 <%= form_with(model: document) do |form| %>
-  <document-editor>
+  <document-editor :document-json="<%= form.object.to_json %>">
   <% if document.errors.any? %>
     <template v-slot:errors>
       <ul class="notification is-danger is-light form-errors">

@@ -7,15 +7,15 @@
 		<div class="field">
 			<label class="label">Name</label>
 			<div class="control">
-				<input class="input" type="text" name="document[title]" id="document_title" placeholder="Document title">
+				<input class="input" type="text" name="document[title]" id="document_title" placeholder="Document title" v-model="document.title">
 			</div>
 		</div>
 
 		<div class="field">
 			<label class="label">Content</label>
 			<div class="control">
-				<wysiwyg v-model="docBody"/>
-				<textarea class="is-hidden" name="document[body]" id="document_body" placeholder="Document body" v-model="docBody"></textarea>
+				<wysiwyg v-model="document.body"/>
+				<textarea class="is-hidden" name="document[body]" id="document_body" placeholder="Document body" v-model="document.body"></textarea>
 			</div>
 		</div>
 
@@ -27,8 +27,13 @@
 export default {
 	data() {
 		return {
-			docBody: ''
+			document: {
+				...this.documentJson
+			}
 		}
+	},
+	props: {
+		documentJson: Object
 	}
 }
 </script>
