@@ -2,10 +2,14 @@
     <aside>
         <img src="/logo.png" alt="Dockified logo" class="logo"/>
         <ul class="doc-list">
-            <li v-for="doc in documents" :key="doc.id">
-                <a :href="`documents/${doc.id}`" @click.prevent="chooseArticle(doc)">
+            <li v-for="doc in documents" :key="doc.id" class="doc" 
+                :class="isDocumentSelected(doc.id) ? 'is-selected' : ''">
+                <a :href="`/documents/${doc.id}`" class="link">
                     {{doc.title}}
                 </a>
+            </li>
+            <li class="doc">
+                <a href="/documents/new" class="button is-small is-primary is-outlined">Create New Document</a>
             </li>
         </ul>
     </aside>
@@ -19,6 +23,10 @@ export default {
         documents: Array
     },
     methods: {
+        isDocumentSelected(id) {
+            const currentUrl = window.location.href
+            return currentUrl.endsWith(`/documents/${id}`)
+        },
         chooseArticle(document) {
             EventBus.$emit('document.selected', document)
         }
@@ -33,7 +41,15 @@ export default {
     width: 6rem;
 }
 
-.doc-list {
+.doc {
     padding: 1rem;
+}
+
+.doc .link {
+    display: block;
+}
+
+.is-selected {
+    background: hsl(0, 0%, 93%);
 }
 </style>

@@ -5,11 +5,12 @@ class DocumentsController < ApplicationController
 
   # GET /documents or /documents.json
   def index
-    @documents = Document.all
+    @documents = Document.select(:id, :title).all
   end
 
   # GET /documents/1 or /documents/1.json
   def show
+    @documents = Document.select(:id, :title).all
   end
 
   # GET /documents/new

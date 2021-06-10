@@ -1,7 +1,7 @@
 <template>
     <main>
         <documents-sidebar :documents="documents" class="sidebar"/>
-        <document-viewer class="viewer"/>
+        <document-viewer :selected-document="selectedDocument" class="viewer"/>
     </main>
 </template>
 
@@ -12,7 +12,8 @@ import DocumentViewer from './viewer.vue'
 export default {
     name: 'DocumentsHome',
     props: {
-        documents: Array
+        documents: Array,
+        selectedDocument: Object,
     },
     components: {DocumentsSidebar, DocumentViewer}
 }

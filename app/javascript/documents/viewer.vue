@@ -1,7 +1,6 @@
 <template>
-    <section>
+    <section class="doc">
         <h1 class="title">{{document.title}}</h1>
-
         <p>
             {{document.body}}
         </p>
@@ -11,8 +10,14 @@
 <script>
 import { EventBus } from '../event-bus'
 export default {
+    props: {
+        selectedDocument: Object
+    },
     data() {
-        const document = {}
+        let document = {}
+        if (this.selectedDocument?.id) {
+            document = {...this.selectedDocument}
+        }
         return {document}
     },
     methods: {
@@ -30,7 +35,9 @@ export default {
 </script>
 
 <style scoped>
-section {
-    padding: 1rem 0;
+.doc {
+    padding: 2rem;
+    border-left: 1px solid hsl(0, 0%, 86%);
+    min-height: 100vh;
 }
 </style>
