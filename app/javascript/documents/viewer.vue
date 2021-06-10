@@ -1,9 +1,7 @@
 <template>
     <section class="doc">
         <h1 class="title">{{document.title}}</h1>
-        <p>
-            {{document.body}}
-        </p>
+        <p v-html="document.body"></p>
     </section>
 </template>
 

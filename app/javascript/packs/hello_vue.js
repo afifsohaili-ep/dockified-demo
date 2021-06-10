@@ -2,11 +2,12 @@ import TurbolinksAdapter from 'vue-turbolinks'
 import Vue from 'vue/dist/vue.esm'
 import DocumentsHome from '../documents/home.vue'
 import DocumentEditor from '../documents/editor.vue'
-import Buefy from 'buefy'
+import VueWysiwyg from "vue-wysiwyg"
 import 'buefy/dist/buefy.css'
+import 'vue-wysiwyg/dist/vueWysiwyg.css'
 
-Vue.use(Buefy)
 Vue.use(TurbolinksAdapter)
+Vue.use(VueWysiwyg, {})
 
 document.addEventListener('turbolinks:load', () => {
   const app = new Vue({

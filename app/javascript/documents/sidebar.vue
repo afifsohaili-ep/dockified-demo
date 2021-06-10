@@ -9,7 +9,7 @@
                 </a>
             </li>
             <li class="doc">
-                <a href="/documents/new" class="button is-small is-primary is-outlined">Create New Document</a>
+                <a href="/documents/new" class="button is-primary is-outlined">Create New Document</a>
             </li>
         </ul>
     </aside>

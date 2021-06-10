@@ -14,13 +14,24 @@
 		<div class="field">
 			<label class="label">Content</label>
 			<div class="control">
-				<textarea class="textarea" name="document[body]" id="document_body" placeholder="Document body"></textarea>
+				<wysiwyg v-model="docBody"/>
+				<textarea class="is-hidden" name="document[body]" id="document_body" placeholder="Document body" v-model="docBody"></textarea>
 			</div>
 		</div>
 
 		<slot name="submit-button"/>
 	</section>
 </template>
+
+<script>
+export default {
+	data() {
+		return {
+			docBody: ''
+		}
+	}
+}
+</script>
 
 <style scoped>
 .container {
@@ -35,5 +46,9 @@
 
 .button {
 	margin-top: 1rem;
+}
+
+.container /deep/ .editr--content {
+	padding: 1rem;
 }
 </style>
