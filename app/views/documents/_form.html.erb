@@ -1,27 +1,16 @@
 <%= form_with(model: document) do |form| %>
+  <document-editor>
   <% if document.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(document.errors.count, "error") %> prohibited this document from being saved:</h2>
-
-      <ul>
+    <template v-slot:errors>
+      <ul class="notification is-danger is-light form-errors">
         <% document.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
       </ul>
-    </div>
+    </template>
   <% end %>
-
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div class="field">
-    <%= form.label :body %>
-    <%= form.text_area :body %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <template v-slot:submit-button>
+    <%= form.submit class: 'button is-primary' %>
+  </template>
+  </document-editor>
 <% end %>
