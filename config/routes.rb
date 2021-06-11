@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   mount Sidekiq::Web => "/sidekiq" # mount Sidekiq::Web in your Rails app
 
   resources :watches
-  devise_for :users
+  devise_for :users, controllers: { sessions: "sessions" }
   resources :documents
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
