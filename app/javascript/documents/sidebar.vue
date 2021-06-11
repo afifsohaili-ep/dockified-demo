@@ -41,11 +41,8 @@ export default {
     width: 6rem;
 }
 
-.doc {
-    padding: 1rem;
-}
-
 .doc .link {
+    padding: 1rem;
     display: block;
 }
 

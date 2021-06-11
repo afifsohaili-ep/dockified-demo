@@ -1,0 +1,27 @@
+<%= form_with(model: watch) do |form| %>
+  <% if watch.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(watch.errors.count, "error") %> prohibited this watch from being saved:</h2>
+
+      <ul>
+        <% watch.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :document_id %>
+    <%= form.text_field :document_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

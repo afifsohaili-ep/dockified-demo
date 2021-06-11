@@ -1,7 +1,7 @@
 <template>
     <main>
         <documents-sidebar :documents="documents" class="sidebar"/>
-        <document-viewer :selected-document="selectedDocument" class="viewer"/>
+        <document-viewer :selected-document="selectedDocument" class="viewer" :current-user-id="currentUserId"/>
     </main>
 </template>
 
@@ -14,6 +14,10 @@ export default {
     props: {
         documents: Array,
         selectedDocument: Object,
+        currentUserId: Number
+    },
+    mounted() {
+        console.log('this.currentUserId', this.currentUserId);
     },
     components: {DocumentsSidebar, DocumentViewer}
 }
