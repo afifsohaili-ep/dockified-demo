@@ -41,6 +41,7 @@ class DocumentsController < ApplicationController
   def update
     respond_to do |format|
       if @document.update(document_params)
+        WatchWorker.perform_in(5.minutes, @document.id)
         format.html { redirect_to @document, notice: "Document was successfully updated." }
         format.json { render :show, status: :ok, location: @document }
       else

@@ -46,6 +46,10 @@ export default {
     display: block;
 }
 
+.doc .button {
+    margin: 1rem;
+}
+
 .is-selected {
     background: hsl(0, 0%, 93%);
 }
