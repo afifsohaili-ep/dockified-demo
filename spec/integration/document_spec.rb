@@ -1,4 +1,5 @@
 require "rails_helper"
+require "percy"
 
 RSpec.feature "Add documents", js: true do
 	before :each do
@@ -15,6 +16,7 @@ RSpec.feature "Add documents", js: true do
 
 		click_button 'Log in'
 
-		expect(page).to have_text("Create new document")
+		expect(page).to have_text('Create new document')
+		Percy.snapshot(page, { name: 'Create document page' })
 	end
 end
