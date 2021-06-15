@@ -56,4 +56,8 @@ export default {
 .container /deep/ .editr--content {
 	padding: 1rem;
 }
+
+.form-errors {
+	text-indent: -5rem;
+}
 </style>
