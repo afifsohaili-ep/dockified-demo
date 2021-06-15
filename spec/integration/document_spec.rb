@@ -17,7 +17,7 @@ RSpec.feature "Add documents", js: true do
 
 	scenario "User visits page to create new document" do
 		expect(page).to have_text('Create new document')
-		Percy.snapshot(page, { name: 'Create document page' })
+		Percy.snapshot(page, { name: 'Create document page', widths: [480, 768, 1024, 1366] })
 	end
 
 	scenario "User sees validation errors" do
@@ -26,6 +26,6 @@ RSpec.feature "Add documents", js: true do
 		expect(page).to have_text('Title can\'t be blank')
 		expect(page).to have_text('Body can\'t be blank')
 		expect(page).to have_text('Body is too short (minimum is 10 characters)')
-		Percy.snapshot(page, { name: 'Create document page validation error' })
+		Percy.snapshot(page, { name: 'Create document page validation error', widths: [480, 768, 1024, 1366]  })
 	end
 end
