@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_10_171655) do
+ActiveRecord::Schema.define(version: 2021_06_24_143209) do
+
+  create_table "attachments", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "image"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_attachments_on_user_id"
+  end
 
   create_table "documents", force: :cascade do |t|
     t.string "title"
@@ -40,6 +48,7 @@ ActiveRecord::Schema.define(version: 2021_06_10_171655) do
     t.index ["user_id"], name: "index_watches_on_user_id"
   end
 
+  add_foreign_key "attachments", "users"
   add_foreign_key "watches", "documents"
   add_foreign_key "watches", "users"
 end
