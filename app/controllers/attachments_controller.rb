@@ -1,5 +1,8 @@
 class AttachmentsController < ApplicationController
   before_action :set_attachment, only: %i[ show edit update destroy ]
+  skip_before_action :verify_authenticity_token,  if: :json_request?
+
+  # before_action :authenticate_user!
 
   # GET /attachments or /attachments.json
   def index
@@ -64,6 +67,10 @@ class AttachmentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def attachment_params
-      params.require(:attachment).permit(:user_id, :image)
+      params.permit(:user_id, :image)
+    end
+
+    def json_request?
+      request.format.json?
     end
 end
