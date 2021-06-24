@@ -1,10 +1,9 @@
 require 'sidekiq_unique_jobs/web'
 
 Rails.application.routes.draw do
-  devise_for :users,
-  controllers: {
-      sessions: 'users/sessions',
-      registrations: 'users/registrations'
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
   }
 
   resources :attachments

@@ -1,10 +1,10 @@
 class Users::SessionsController < Devise::SessionsController
   respond_to :json
+  skip_before_action :verify_authenticity_token
 
   private
 
   def respond_with(resource, _opts = {})
-    byebug
     render json: { message: 'You are logged in.' }, status: :ok
   end
 

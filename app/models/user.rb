@@ -10,6 +10,6 @@ class User < ApplicationRecord
   self.skip_session_storage = [:http_auth, :params_auth]
 
   def jwt_payload
-    { 'email' => email, 'id' => id }
+    super.merge({ 'email' => email, 'id' => id })
   end
 end
