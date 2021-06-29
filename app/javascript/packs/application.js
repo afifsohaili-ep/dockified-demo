@@ -4,10 +4,24 @@
 // that code so it'll be compiled.
 
 import Rails from "@rails/ujs"
-import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+import { createApp, h } from 'vue'
+import { InertiaProgress } from '@inertiajs/progress'
+import * as Routes from 'routes';
+import { createInertiaApp } from '@inertiajs/inertia-vue3'
 
 Rails.start()
-Turbolinks.start()
 ActiveStorage.start()
+InertiaProgress.init()
+
+window.Routes = Routes;
+
+createInertiaApp({
+  resolve: name => require(`./Pages/${name}`),
+  setup({ el, app, props, plugin }) {
+    createApp({ render: () => h(app, props) })
+      .use(plugin)
+      .mount(el)
+  },
+})

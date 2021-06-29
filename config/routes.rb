@@ -1,6 +1,8 @@
 require 'sidekiq_unique_jobs/web'
 
 Rails.application.routes.draw do
+  root "home#index"
+
   resources :attachments
   mount Sidekiq::Web => "/sidekiq" # mount Sidekiq::Web in your Rails app
 

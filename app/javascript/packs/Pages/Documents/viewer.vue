@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import { EventBus } from '../event-bus'
+// import { EventBus } from '../event-bus'
 export default {
     props: {
         selectedDocument: Object,
@@ -40,10 +40,10 @@ export default {
         }
     },
     mounted() {
-        EventBus.$on('document.selected', this.selectDocument)
+        // EventBus.$on('document.selected', this.selectDocument)
     },
     destroyed() {
-        EventBus.$off('document.selected', this.selectDocument)
+        // EventBus.$off('document.selected', this.selectDocument)
     }
 }
 </script>

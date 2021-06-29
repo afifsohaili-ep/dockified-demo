@@ -5,7 +5,10 @@ class DocumentsController < ApplicationController
 
   # GET /documents or /documents.json
   def index
-    @documents = Document.select(:id, :title).all
+    documents = Document.select(:id, :title).all
+    render inertia: 'Documents/Home', props: {
+      documents: documents
+    }
   end
 
   # GET /documents/1 or /documents/1.json

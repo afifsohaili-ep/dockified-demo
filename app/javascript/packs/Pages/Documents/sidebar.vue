@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import {EventBus} from '../event-bus'
+// import {EventBus} from '../event-bus'
 
 export default {
     props: {
@@ -28,7 +28,7 @@ export default {
             return currentUrl.endsWith(`/documents/${id}`)
         },
         chooseArticle(document) {
-            EventBus.$emit('document.selected', document)
+            // EventBus.$emit('document.selected', document)
         }
     }
 }
